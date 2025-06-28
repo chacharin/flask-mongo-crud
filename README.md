@@ -1,6 +1,6 @@
 # Flask + MongoDB Atlas CRUD API
 
-A minimal **RESTful API** built with **Flask 3** and **PyMongo 4** that shows how to create, read, update and delete (CRUD) documents in a **MongoDB Atlas** cluster.
+A minimal **RESTful API** built with **Flask** and **PyMongo** that shows how to create, read, update and delete (CRUD) documents in a **MongoDB Atlas** cluster.
 
 ---
 
@@ -60,10 +60,11 @@ Create a new `.env` in the project root (**never commit this file!**):
 ```env
 FLASK_ENV=development
 FLASK_APP=app.py
-MONGO_URI=mongodb+srv://admin:<password>@cluster0.abcde.mongodb.net/?retryWrites=true&w=majority
+MONGO_URI=mongodb+srv://<user>:<password>@cluster0.abcde.mongodb.net/?retryWrites=true&w=majority
 ```
 
-- Replace `<password>` with the real password you set in Atlas.
+- Replace `<user(admin)>` with the real user you set in Atlas [such as: admin].
+- Replace `<password>` with the real password you set in Atlas [such as: 123].
 - Feel free to append `&appName=FlaskMongoCRUD` (optional).
 
 The app uses `client["flaskdb"]` and the `users` collection by default—edit `app.py` if you wish to change these.
@@ -113,16 +114,3 @@ flask-mongo-crud/
 ```
 
 ---
-
-## 📦 Deployment
-
-You can deploy to **Render**, **Railway**, **Fly.io**, or any platform that supports Python:
-
-1. Set environment variables (`MONGO_URI`, `FLASK_ENV=production`).
-2. Use `gunicorn` in a `Procfile` e.g. `web: gunicorn -b 0.0.0.0:$PORT app:app`.
-
----
-
-## ⚖️ License
-
-MIT © 2025 Chacharin Lertyosbordin
